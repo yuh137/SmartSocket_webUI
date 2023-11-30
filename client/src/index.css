@@ -22,6 +22,14 @@
     background-image: conic-gradient(from 3.1416rad at 0% 80%, rgba(56,185,57,1), rgba(28,221,36,1));
 }
 
+.danger-background {
+    background-image: conic-gradient(from 3.1416rad at 0% 80%, rgb(185, 56, 56), rgb(221, 41, 28));
+}
+
+.unconnected-background {
+    background-image: conic-gradient(from 3.1416rad at 0% 80%, rgb(185, 163, 56), rgb(221, 221, 28));
+}
+
 .pulse-red {
    animation: pulse-animation-red 2s infinite;
 }
@@ -31,7 +39,7 @@
 }
 
 .pulse-yellow {
-   animation: pulse-animation-red 2s infinite;
+   animation: pulse-animation-yellow 2s infinite;
 }
   
 @keyframes pulse-animation-red {
@@ -45,7 +53,7 @@
 
 @keyframes pulse-animation-yellow {
     0% {
-        box-shadow: 0 0 0 0px rgba(255, 1, 1, 0.2);
+        box-shadow: 0 0 0 0px rgba(255, 255, 1, 0.2);
     }
     100% {
         box-shadow: 0 0 0 20px rgba(255, 1, 1, 0);
