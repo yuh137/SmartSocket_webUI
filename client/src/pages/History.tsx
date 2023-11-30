@@ -1,12 +1,14 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
-import { HisTable } from '../components/HisTable'
+import { SortedHisTable } from '../components/SortedHisTable'
+import { FilterHisTable } from '../components/FilterHisTable'
 
 const History = () => {
   return (
     <>
       <NavBar />
-      <HisTable />
+      <SortedHisTable />
+      {/* <FilterHisTable /> */}
     </>
   )
 }

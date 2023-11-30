@@ -1,23 +1,25 @@
+
 export const COLUMNS = [
     {
         Header : 'ID',
-        accessor: 'id'
+        accessor: 'id',
     },
     {
         Header: 'Date created',
-        accessor: 'Date created'
+        accessor: 'Date created',
     },
     {
         Header: 'Current',
-        accessor: 'Current'
+        accessor: 'Current',
     },
     {
         Header: 'Voltage',
-        accessor: 'Voltage'
+        accessor: 'Voltage',
+       
     },
     {
         Header: 'Power',
-        accessor: 'Power'
+        accessor: 'Power',
     },
     {
         Header: 'Status',
