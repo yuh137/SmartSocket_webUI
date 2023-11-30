@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <div className="background h-[75vh]">
+      <div className="background h-screen">
         <body className='flex flex-col items-center gap-6'>
           <img src="/smartsocket-2.png" alt="logo-2" className='scale-75 grow-0 mt-20'/>
           <div className="w-fit flex gap-12">

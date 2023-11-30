@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import * as mqtt from "mqtt"
 import { MQTTService } from '../class/MQTTService'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer';
+import { Icon } from "@iconify/react"
 
 const PowerDisplay = () => {
   const [powerValue, setPowerValue] = useState(0);
@@ -21,6 +22,12 @@ const PowerDisplay = () => {
   return (
     <>
       <NavBar />
+      <div className="background h-screen flex flex-col">
+          <div className='h-[180px] w-[180px] safe-background rounded-full pulse-green flex flex-col justify-center items-center'>
+            <Icon icon="material-symbols-light:bolt" className='text-yellow-500 scale-[8]'/>
+          </div>
+      </div>
+      <Footer />
     </>
   )
 }
