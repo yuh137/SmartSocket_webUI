@@ -45,11 +45,11 @@ const PowerDisplay = () => {
           <div className={`h-[240px] w-[240px] ${displayStyles.background} rounded-full ${displayStyles.rippleEffect} flex flex-col justify-center items-center mt-24`}
                onClick={() => {
                 setDisplayStyles({
-                  icon: DisplayIcons.UNCONNECTED,
-                  icon_color: DisplayIconColors.UNCONNECTED,
-                  rippleEffect: DisplayRippleEffects.YELLOW,
-                  background: DisplayBackgrounds.UNCONNECTED,
-                  message: DisplayMessage.UNCONNECTED
+                  icon: DisplayIcons.DANGER,
+                  icon_color: DisplayIconColors.DANGER,
+                  rippleEffect: DisplayRippleEffects.RED,
+                  background: DisplayBackgrounds.DANGER,
+                  message: DisplayMessage.DANGER
                 })
                }}   
           >

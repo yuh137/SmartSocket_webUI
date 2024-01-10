@@ -1,7 +1,7 @@
 const mqtt = require('mqtt');
 const MQTT_HOST_NAME = "mqtt://io.adafruit.com:1883";
 const MQTT_USERNAME = "nquochuy137";
-const MQTT_PASSWORD = "aio_hchO52XiLMANM9jEuAMttwTTOBL8";
+const MQTT_PASSWORD = "aio_Xjed53JuHuW0sqxtzgaEYwmMfT8Z";
 
 class MQTTService {
   constructor(host, username, password, messageCallback) {
