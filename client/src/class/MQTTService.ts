@@ -16,6 +16,8 @@ export class MQTTService {
     connect() {
         this.mqttClient = mqtt.connect(this.host, {
             keepalive: 60,
+            clientId: "random",
+            protocolId: 'MQTT',
             username: this.username,
             password: this.password
         })
@@ -23,14 +25,17 @@ export class MQTTService {
 
     subscribe(topic: string) {
         this.mqttClient?.subscribe(topic);
+
+        console.log("Connected to feed: " + topic);
+    }
+
+    publish(topic: string, messgae: string) {
+        this.mqttClient?.publish(topic, messgae);
     }
 
     messageCallback() {
         this.mqttClient?.on("message", (topic, message) => {
-            return {
-                topic,
-                message
-            }
+            console.log(topic, message);
         })
     }
 }

@@ -1,10 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { Box, Drawer, Divider, IconButton } from "@mui/material"
+import { Box, Drawer, Divider, IconButton, Button } from "@mui/material"
 import { Icon } from '@iconify/react';
+import { useInterval } from '../components/useInterval'
 
 const NavBar = () => {
   const [drawer, setDrawer] = useState(false);
+  const [pumpState, setPumpState] = useState<boolean>(false)
+
+  useEffect(() => {
+    fetch('https://io.adafruit.com/api/v2/nquochuy137/feeds/smartsocket-pump')
+        .then(res => res.json())
+        .then(json => {
+            const lastPumpState = parseInt(json.last_value, 10);
+            if (lastPumpState) {
+                setPumpState(true)
+            } else {
+                setPumpState(false)
+            }
+        })
+  }, [])
+
+  
 
   return (
     <>
@@ -14,11 +31,28 @@ const NavBar = () => {
                     <Icon className='scale-[2]' icon="fa6-solid:bars" />
                 </IconButton>
                 <img src="/smartsocket.png" alt="image" className='scale-50'/>
-                <IconButton className='grow-0 h-fit'>
-                    <Link to="/" className='scale-150 my-auto'>
-                        <Icon icon="fa6-solid:house"/>
-                    </Link>
-                </IconButton>
+                <div className='flex gap-2'>
+                    <Button variant="contained" color={pumpState ? "error" : "success"} onClick={async () => { 
+                        await fetch('http://localhost:8000/publish', {
+                            method: 'POST',
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                topic: "nquochuy137/feeds/smartsocket-pump",
+                                message: pumpState ? "0" : "1"
+                            })
+                        })
+                        setPumpState(!pumpState);
+                    }}>
+                        {pumpState ? "Turn Off" : "Turn On"}
+                    </Button>
+                    <IconButton className='grow-0 h-fit'>
+                        <Link to="/" className='scale-150 my-auto'>
+                            <Icon icon="fa6-solid:house"/>
+                        </Link>
+                    </IconButton>
+                </div>
             </ul>
             <Drawer
                 anchor='left'
